@@ -1,6 +1,6 @@
-var sql = require("mysql");
+var mysql = require("mysql");
 
-var connection = mysql.creatConnection({
+var connection = mysql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: "password",
