@@ -9,8 +9,8 @@ var burgerMaster = {
 	makeOne: function(name, cb){
 		orm.insertOne("burgers", "burger_name", name, cb);
 	},
-	eatOne: function(id, cb){
-		orm.updateOne("burgers", "devoured=true", id, cb);
+	eatOne: function(id, con, cb){
+		orm.updateOne("burgers", id, con, cb);
 	}
 };
 

@@ -8,6 +8,7 @@ router.get("/", function(req, res){
 
 router.get("/burgers", function(req, res){
 	burgerMaster.getAll(function(burgerInfo) {
+		console.log(burgerInfo);
 		res.render("index", {burgerInfo: burgerInfo});
 	});
 });
@@ -19,8 +20,8 @@ router.post("/burgers/create", function(req, res){
 	});
 });
 
-router.put("/burgers/:id", function(req,res){
-	burgerMaster.eatOne(req.params.id, function(eaten){
+router.put("/burgers/:id/:condition", function(req,res){
+	burgerMaster.eatOne(req.params.id, req.params.condition, function(eaten){
 		console.log(eaten);
 		res.sendStatus(200);
 	});
