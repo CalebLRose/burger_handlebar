@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 
+// mysql://b55ae129f2b367:6b44489d@us-cdbr-iron-east-05.cleardb.net/heroku_cebe177fc141cc9?reconnect=true
 
 var connection = mysql.createConnection({
 	host: "us-cdbr-iron-east-05.cleardb.net",
