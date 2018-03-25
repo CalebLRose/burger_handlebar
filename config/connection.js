@@ -9,9 +9,21 @@ var connection = mysql.createConnection({
 	database: "heroku_cebe177fc141cc9"
 });
 
+var reconnect;
+
+function handleDisconnect() {
+	reconnect = connection.connect(function(err){
+	if (err) {
+		console.error("error in connection: " + err.stack);
+		return;
+	};
+	console.log("connection succesful: " + connection.threadId);
+});
+
 connection.connect(function(err){
 	if (err) {
 		console.error("error in connection: " + err.stack);
+		handleDisconnect();
 		return;
 	};
 	console.log("connection succesful: " + connection.threadId);
